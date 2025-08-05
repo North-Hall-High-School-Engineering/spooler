@@ -3,7 +3,6 @@ package config
 import (
 	"strings"
 
-	"github.com/joho/godotenv"
 	"github.com/spf13/viper"
 	"github.com/torbenconto/spooler/internal/types"
 )
@@ -55,7 +54,6 @@ type Config struct {
 }
 
 func LoadConfig(path string) (*Config, error) {
-	_ = godotenv.Load()
 	viper.SetConfigName("config")
 	viper.SetConfigType("yml")
 	viper.AddConfigPath(path)

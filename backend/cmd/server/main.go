@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/joho/godotenv"
 	"github.com/torbenconto/spooler/config"
 	"github.com/torbenconto/spooler/internal/models"
 	"gorm.io/driver/postgres"
@@ -31,6 +32,8 @@ func validateSupabaseConfig(cfg *config.Config) error {
 }
 
 func main() {
+	_ = godotenv.Load()
+
 	_, err := config.LoadConfig(".")
 	if err != nil {
 		log.Fatalf("failed to load config: %v", err)
